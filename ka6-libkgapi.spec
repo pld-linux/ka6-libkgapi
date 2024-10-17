@@ -6,7 +6,7 @@
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		libkgapi
-%ifarch x32
+%ifarch x32 i686
 %undefine	with_webengine
 %endif
 Summary:	libkgapi
