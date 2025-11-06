@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	tests		# build with tests
 %bcond_without	webengine	# build without webengine
-%define		kdeappsver	25.08.2
+%define		kdeappsver	25.08.3
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		libkgapi
@@ -11,12 +11,12 @@
 %endif
 Summary:	libkgapi
 Name:		ka6-%{kaname}
-Version:	25.08.2
-Release:	2
+Version:	25.08.3
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	5d82ff314abe0fd3a983dcb75c7642ff
+# Source0-md5:	b5d929ddcffa6ec2234c07fbead7464d
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6Gui-devel >= 5.11.1
@@ -101,24 +101,24 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}_qt.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libKPim6GAPIBlogger.so.*.*
+%{_libdir}/libKPim6GAPIBlogger.so.*.*
 %ghost %{_libdir}/libKPim6GAPIBlogger.so.6
-%attr(755,root,root) %{_libdir}/libKPim6GAPICalendar.so.*.*
+%{_libdir}/libKPim6GAPICalendar.so.*.*
 %ghost %{_libdir}/libKPim6GAPICalendar.so.6
-%attr(755,root,root) %{_libdir}/libKPim6GAPICore.so.*.*
+%{_libdir}/libKPim6GAPICore.so.*.*
 %ghost %{_libdir}/libKPim6GAPICore.so.6
-%attr(755,root,root) %{_libdir}/libKPim6GAPIDrive.so.*.*
+%{_libdir}/libKPim6GAPIDrive.so.*.*
 %ghost %{_libdir}/libKPim6GAPIDrive.so.6
-%attr(755,root,root) %{_libdir}/libKPim6GAPILatitude.so.*.*
+%{_libdir}/libKPim6GAPILatitude.so.*.*
 %ghost %{_libdir}/libKPim6GAPILatitude.so.6
-%attr(755,root,root) %{_libdir}/libKPim6GAPIMaps.so.*.*
+%{_libdir}/libKPim6GAPIMaps.so.*.*
 %ghost %{_libdir}/libKPim6GAPIMaps.so.6
-%attr(755,root,root) %{_libdir}/libKPim6GAPIPeople.so.*.*
+%{_libdir}/libKPim6GAPIPeople.so.*.*
 %ghost %{_libdir}/libKPim6GAPIPeople.so.6
-%attr(755,root,root) %{_libdir}/libKPim6GAPITasks.so.*.*
+%{_libdir}/libKPim6GAPITasks.so.*.*
 %ghost %{_libdir}/libKPim6GAPITasks.so.6
 %ghost %{_libdir}/sasl2/libkdexoauth2.so.3
-%attr(755,root,root) %{_libdir}/sasl2/libkdexoauth2.so.*.*
+%{_libdir}/sasl2/libkdexoauth2.so.*.*
 %{_datadir}/qlogging-categories6/libkgapi.categories
 
 %files devel
