@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	tests		# build with tests
 %bcond_without	webengine	# build without webengine
-%define		kdeappsver	26.04.0
+%define		kdeappsver	26.04.1
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		libkgapi
@@ -11,12 +11,12 @@
 %endif
 Summary:	libkgapi
 Name:		ka6-%{kaname}
-Version:	26.04.0
-Release:	2
+Version:	26.04.1
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	d367c692f2acf0b6c879c53bcdbb0d7b
+# Source0-md5:	fbf1e7590895749c02ef767f22077949
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6Gui-devel >= 5.11.1
@@ -96,8 +96,12 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post
+/sbin/ldconfig
+/sbin/ldconfig %{_libdir}/sasl2
+%postun
+/sbin/ldconfig
+/sbin/ldconfig %{_libdir}/sasl2
 
 %files -f %{kaname}_qt.lang
 %defattr(644,root,root,755)
